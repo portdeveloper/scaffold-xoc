@@ -22,7 +22,7 @@ const PillNavigation = (): JSX.Element => {
   };
 
   return (
-    <div className=" flex focus-within:to-30% m-auto justify-center text-center mt-24 bg-orange-950">
+    <div className=" flex focus-within:to-30% m-auto justify-center text-center mt-24 border-2 rounded-md border-collapse w-fit dark:border-gray-700">
       <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400">
         {tabs.map((tab) => (
           <li key={tab.id} className="mr-2">
