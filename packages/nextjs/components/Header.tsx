@@ -27,6 +27,11 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/example-ui",
     icon: <SparklesIcon className="h-4 w-4" />,
   },
+  {
+    label: "Dapp",
+    href: "/dapp",
+    icon: <SparklesIcon className="h-4 w-4" />,
+  },
 ];
 
 export const HeaderMenuLinks = () => {
