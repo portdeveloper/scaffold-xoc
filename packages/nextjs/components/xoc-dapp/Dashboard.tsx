@@ -6,9 +6,13 @@ import CollateralInfo from "./CollateralInfo";
 const Dashboard: React.FC = () => {
   return (
     <div>
-      <PillNavigation />
-      <AmountInput />
-      <CollateralInfo />
+      <div>
+        <PillNavigation />
+      </div>
+      <div className="grid lg:grid-cols-2 flex-grow">
+        <AmountInput />
+        <CollateralInfo />
+      </div>
     </div>
   );
 };
