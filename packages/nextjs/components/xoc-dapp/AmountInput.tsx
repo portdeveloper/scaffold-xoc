@@ -42,7 +42,7 @@ export default function AmountInput({
           className="text-5xl block p-4 pl-10 text-sm text-gray-900 border-b-4 rounded-lg bg-inherit focus:ring-blue-500 focus:border-white dark:bg-inherit dark:border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Enter Amount"
           required
-          value={inputAmount} // Set the inputAmount prop as the input value
+ // Set the inputAmount prop as the input value
           onChange={handleAmountChange}
         />
       </div>
