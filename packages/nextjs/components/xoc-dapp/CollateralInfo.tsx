@@ -9,8 +9,8 @@ function CollateralInfo() {
   const maxLTVFactor = useContractReader({ contractAddress: YOUR_CONTRACT_ADDRESS, functionName: "maxLTVFactor" }); */
 
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg m-12 border-2 border-gray-500">
-      <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <div className=" border-l-2 w-96 relative overflow-x-auto shadow-md sm:rounded-lg m-12 border-2 border-gray-500">
+      <table className=" w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase dark:text-gray-400">
           <tr>
             <th scope="col" className="px-6 py-3  bg-gray-50 dark:bg-gray-800">

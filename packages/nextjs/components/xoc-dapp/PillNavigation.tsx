@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const PillNavigation = (): JSX.Element => {
-  const [selectedTab, setSelectedTab] = useState("profile");
+const PillNavigation = ({ selectedTab, setSelectedTab }) => {
+
 
   const tabs = [
     { id: "deposit", label: "Deposit" },
