@@ -2116,10 +2116,20 @@
   dependencies:
     json-parse-even-better-errors "^2.3.1"
 
-"@openzeppelin/contracts@^4.8.1":
+"@openzeppelin/contracts-upgradeable@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/@openzeppelin/contracts-upgradeable/-/contracts-upgradeable-5.0.0.tgz"
+  integrity sha512-D54RHzkOKHQ8xUssPgQe2d/U92mwaiBDY7qCCVGq6VqwQjsT3KekEQ3bonev+BLP30oZ0R1U6YC8/oLpizgC5Q==
+
+"@openzeppelin/contracts@^4.9.3":
   version "4.9.3"
   resolved "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-4.9.3.tgz"
   integrity sha512-He3LieZ1pP2TNt5JbkPA4PNT9WC3gOTOlDcFGJW4Le4QKqwmiNJCRt44APfxMxvq7OugU/cqYuPcSBzOw38DAg==
+
+"@openzeppelin/contracts@5.0.0":
+  version "5.0.0"
+  resolved "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.0.0.tgz"
+  integrity sha512-bv2sdS6LKqVVMLI5+zqnNrNU/CA+6z6CmwFXm/MzmOPBRSO5reEJN7z0Gbzvs0/bv/MZZXNklubpwy3v2+azsw==
 
 "@rainbow-me/rainbowkit@1.0.8":
   version "1.0.8"
@@ -2304,7 +2314,7 @@
   version "0.0.1"
   resolved "file:packages/hardhat"
   dependencies:
-    "@openzeppelin/contracts" "^4.8.1"
+    "@openzeppelin/contracts" "^4.9.3"
     dotenv "^16.0.3"
     envfile "^6.18.0"
     qrcode "^1.5.1"

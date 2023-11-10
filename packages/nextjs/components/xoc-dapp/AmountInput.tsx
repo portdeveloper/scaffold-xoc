@@ -1,37 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Button3D from './Button3D';
 
 interface AmountInputProps {
-  headerText: string;
   inputAmount: string;
-  inputError: string;
-  inputAmountBigNum: BigNumber | undefined;
-  inputLimit: BigNumber | null;
-  inputTypeText: string;
   actionText: string;
   actionHandler: () => void;
 }
 
-export default function AmountInput({
-  headerText,
-  inputAmount,
-  inputError,
-  inputAmountBigNum,
-  inputLimit,
-  inputTypeText,
-  actionText,
-  actionHandler,
-}: AmountInputProps): JSX.Element {
-  const [amount, setAmount] = useState<number>(0);
+export default function AmountInput({ inputAmount, actionText, actionHandler }: AmountInputProps): JSX.Element {
+  // Initialize the amount state with the value from the inputAmount prop
+  const [amount, setAmount] = useState<bigint>(BigInt(inputAmount) || BigInt(0));
+
+  // Update the component state when the inputAmount prop changes
+  useEffect(() => {
+    setAmount(BigInt(inputAmount) || BigInt(0));
+  }, [inputAmount]);
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newAmount = parseInt(event.target.value);
-    setAmount(isNaN(newAmount) ? 0 : newAmount);
+    const newAmount = BigInt(event.target.value);
+    setAmount(isNaN(Number(newAmount)) ? BigInt(0) : BigInt(newAmount));
   };
 
   const handleSendAmount = () => {
-    // Use the actionHandler function
+    const actionHandler = () => {
+      console.log('Sending amount: ', amount);
+    };
     actionHandler();
-  };
+  }
+
 
   return (
     <form className="p-10 pt-36 flex flex-col items-center border-r-2">
@@ -39,21 +35,16 @@ export default function AmountInput({
         <input
           type="search"
           id="search"
-          className="text-5xl block p-4 pl-10 text-sm text-gray-900 border-b-4 rounded-lg bg-inherit focus:ring-blue-500 focus:border-white dark:bg-inherit dark:border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="text-5xl block p-4 pl-10 text-gray-900 border-b-4 rounded-lg bg-inherit focus:ring-blue-500 focus:border-white dark:bg-inherit dark:border-white dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="Enter Amount"
           required
- // Set the inputAmount prop as the input value
+          // Set the inputAmount prop as the input value
+          value={amount.toString()}
           onChange={handleAmountChange}
         />
       </div>
       <div className="">
-        <button
-          type="button"
-          onClick={handleSendAmount}
-          className="h-full w-52 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >
-          {actionText} {/* Use the actionText prop for button text */}
-        </button>
+        <Button3D actionHandler={handleSendAmount}>{actionText}</Button3D>
       </div>
     </form>
   );

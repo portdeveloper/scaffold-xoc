@@ -3,6 +3,8 @@ import PillNavigation from "./PillNavigation";
 import AmountInput from "./AmountInput";
 import CollateralInfo from "./CollateralInfo";
 import { useState } from "react";
+import { parseEther } from "viem";
+import { useScaffoldContractWrite, useScaffoldContractRead } from "~~/hooks/scaffold-eth";
 
 const Dashboard: React.FC = () => {
   const [selectedTab, setSelectedTab] = useState('deposit');
@@ -20,20 +22,25 @@ const Dashboard: React.FC = () => {
   const XOCRedeemInputAmount = '0'; // Define or retrieve XOCRedeemInputAmount
   const XOCRedeemInputError = ''; // Define or retrieve XOCRedeemInputError
   const XOCRedeemInputAmountBigNum = undefined; // Define or retrieve XOCRedeemInputAmountBigNum
-  const userXOCBalance = null; // Define or retrieve userXOCBalance
+
   const userXOCDebt = null; // Define or retrieve userXOCDebt
   const WETHWithdrawInputAmount = '0'; // Define or retrieve WETHWithdrawInputAmount
   const WETHWithdrawInputError = ''; // Define or retrieve WETHWithdrawInputError
   const WETHWithdrawInputAmountBigNum = undefined; // Define or retrieve WETHWithdrawInputAmountBigNum
   const userCollateralMaxWithdrawal = null; // Define or retrieve userCollateralMaxWithdrawal
+  const { data: userXOCBalance } = useScaffoldContractRead({
+    contractName: "YourContract",
+    functionName: "totalCounter",
+  });
 
   return (
     <div className="wrapper">
       <PillNavigation selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <div>{userXOCBalance}</div>
       <div className="main-section">
         <div className="input-section">
           <div className="input-section__container">
-            {selectedTab === 'deposit' ? (
+            {selectedTab === "deposit" ? (
               isNative ? (
                 <AmountInput
                   headerText="Deposit"
