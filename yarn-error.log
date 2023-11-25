@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js chain
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js workspace @se-2/nextjs dev
 
 PATH: 
-  C:\Python38\Scripts\;C:\Python38\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Brackets\command;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\jaibo\.cargo\bin;C:\Users\jaibo\AppData\Local\Microsoft\WindowsApps;C:\Users\jaibo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jaibo\AppData\Local\Yarn\bin;C:\Users\jaibo\AppData\Local\GitHubDesktop\bin;C:\Users\jaibo\AppData\Roaming\npm
+  C:\Users\jaibo\xoc\scaffold-eth-2\node_modules\.bin;C:\Users\jaibo\AppData\Local\Yarn\Data\link\node_modules\.bin;C:\Users\jaibo\xoc\scaffold-eth-2\node_modules\.bin;C:\Users\jaibo\xoc\scaffold-eth-2\node_modules\.bin;C:\Users\jaibo\AppData\Local\Yarn\Data\link\node_modules\.bin;C:\Users\jaibo\xoc\scaffold-eth-2\node_modules\.bin;C:\Program Files\libexec\lib\node_modules\npm\bin\node-gyp-bin;C:\Program Files\lib\node_modules\npm\bin\node-gyp-bin;C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Python38\Scripts\;C:\Python38\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Brackets\command;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Yarn\bin\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\jaibo\.cargo\bin;C:\Users\jaibo\AppData\Local\Microsoft\WindowsApps;C:\Users\jaibo\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\jaibo\AppData\Local\Yarn\bin;C:\Users\jaibo\AppData\Local\GitHubDesktop\bin;C:\Users\jaibo\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
@@ -2177,10 +2177,20 @@ Lockfile:
     dependencies:
       json-parse-even-better-errors "^2.3.1"
   
-  "@openzeppelin/contracts@^4.8.1":
+  "@openzeppelin/contracts-upgradeable@^5.0.0":
+    version "5.0.0"
+    resolved "https://registry.npmjs.org/@openzeppelin/contracts-upgradeable/-/contracts-upgradeable-5.0.0.tgz"
+    integrity sha512-D54RHzkOKHQ8xUssPgQe2d/U92mwaiBDY7qCCVGq6VqwQjsT3KekEQ3bonev+BLP30oZ0R1U6YC8/oLpizgC5Q==
+  
+  "@openzeppelin/contracts@^4.9.3":
     version "4.9.3"
     resolved "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-4.9.3.tgz"
     integrity sha512-He3LieZ1pP2TNt5JbkPA4PNT9WC3gOTOlDcFGJW4Le4QKqwmiNJCRt44APfxMxvq7OugU/cqYuPcSBzOw38DAg==
+  
+  "@openzeppelin/contracts@5.0.0":
+    version "5.0.0"
+    resolved "https://registry.npmjs.org/@openzeppelin/contracts/-/contracts-5.0.0.tgz"
+    integrity sha512-bv2sdS6LKqVVMLI5+zqnNrNU/CA+6z6CmwFXm/MzmOPBRSO5reEJN7z0Gbzvs0/bv/MZZXNklubpwy3v2+azsw==
   
   "@rainbow-me/rainbowkit@1.0.8":
     version "1.0.8"
@@ -2365,7 +2375,7 @@ Lockfile:
     version "0.0.1"
     resolved "file:packages/hardhat"
     dependencies:
-      "@openzeppelin/contracts" "^4.8.1"
+      "@openzeppelin/contracts" "^4.9.3"
       dotenv "^16.0.3"
       envfile "^6.18.0"
       qrcode "^1.5.1"
@@ -12608,9 +12618,9 @@ Lockfile:
 Trace: 
   Error: Command failed.
   Exit code: 1
-  Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c yarn workspace @se-2/hardhat chain
-  Directory: C:\Users\jaibo\xoc\scaffold-eth-2
+  Command: C:\Program Files\nodejs\node.exe
+  Arguments: C:\Program Files (x86)\Yarn\lib\cli.js dev
+  Directory: C:\Users\jaibo\xoc\scaffold-eth-2\packages\nextjs
   Output:
   
       at ProcessTermError.MessageError (C:\Program Files (x86)\Yarn\lib\cli.js:186:110)

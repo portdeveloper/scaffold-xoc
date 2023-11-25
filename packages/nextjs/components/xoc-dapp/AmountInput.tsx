@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Button3D from './Button3D';
+import { useContractWrite } from 'wagmi';
+import { parseEther } from 'ethers/lib/utils';
 
 interface AmountInputProps {
   inputAmount: string;
@@ -11,6 +13,13 @@ export default function AmountInput({ inputAmount, actionText, actionHandler }: 
   // Initialize the amount state with the value from the inputAmount prop
   const [amount, setAmount] = useState<bigint>(BigInt(inputAmount) || BigInt(0));
 
+  // Write to the contract using the useScaffoldContractWrite hook
+/*   const { data, isLoading, isSuccess, write } = useContractWrite({
+    address: "0xd411BE9A105Ea7701FabBe58C2834b7033EBC203",
+    abi: wagmigotchiABI,
+    functionName: "deposit",
+  }) */
+
   // Update the component state when the inputAmount prop changes
   useEffect(() => {
     setAmount(BigInt(inputAmount) || BigInt(0));
@@ -21,16 +30,16 @@ export default function AmountInput({ inputAmount, actionText, actionHandler }: 
     setAmount(isNaN(Number(newAmount)) ? BigInt(0) : BigInt(newAmount));
   };
 
-  const handleSendAmount = () => {
-    const actionHandler = () => {
-      console.log('Sending amount: ', amount);
-    };
-    actionHandler();
-  }
+  const handleOnSubmit = async (event) => {
+    event.preventDefault();
+    console.log('Sending amount: ', amount);
+    // Call the write function with the amount state
+    await write(amount);
 
+  };
 
   return (
-    <form className="p-10 pt-36 flex flex-col items-center border-r-2">
+    <form onSubmit={handleOnSubmit} className="p-10 pt-36 flex flex-col items-center border-r-2">
       <div className="relative p-10">
         <input
           type="search"
@@ -44,7 +53,7 @@ export default function AmountInput({ inputAmount, actionText, actionHandler }: 
         />
       </div>
       <div className="">
-        <Button3D actionHandler={handleSendAmount}>{actionText}</Button3D>
+        <Button3D actionHandler={() => 0}>{actionText}</Button3D>
       </div>
     </form>
   );
